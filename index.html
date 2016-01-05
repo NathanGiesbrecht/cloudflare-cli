@@ -1,70 +1,68 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en-us">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta charset="UTF-8">
     <title>Cloudflare-cli by danielpigott</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/respond.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <!--[if lt IE 8]>
-    <link rel="stylesheet" href="stylesheets/ie.css">
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
   <body>
-      <div id="header">
-        <nav>
-          <li class="fork"><a href="https://github.com/danielpigott/cloudflare-cli">View On GitHub</a></li>
-          <li class="downloads"><a href="https://github.com/danielpigott/cloudflare-cli/zipball/master">ZIP</a></li>
-          <li class="downloads"><a href="https://github.com/danielpigott/cloudflare-cli/tarball/master">TAR</a></li>
-          <li class="title">DOWNLOADS</li>
-        </nav>
-      </div><!-- end header -->
+    <section class="page-header">
+      <h1 class="project-name">Cloudflare-cli</h1>
+      <h2 class="project-tagline">CLI for interacting with Cloudflare</h2>
+      <a href="https://github.com/danielpigott/cloudflare-cli" class="btn">View on GitHub</a>
+      <a href="https://github.com/danielpigott/cloudflare-cli/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/danielpigott/cloudflare-cli/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-    <div class="wrapper">
-
-      <section>
-        <div id="title">
-          <h1>Cloudflare-cli</h1>
-          <p>CLI for interacting with Cloudflare</p>
-          <hr>
-          <span class="credits left">Project maintained by <a href="https://github.com/danielpigott">danielpigott</a></span>
-          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
-        </div>
-
-        <h1>
-<a name="cloudflare-cli" class="anchor" href="#cloudflare-cli"><span class="octicon octicon-link"></span></a>cloudflare-cli</h1>
+    <section class="main-content">
+      <h1>
+<a id="cloudflare-cli" class="anchor" href="#cloudflare-cli" aria-hidden="true"><span class="octicon octicon-link"></span></a>cloudflare-cli</h1>
 
 <p>CLI for interacting with Cloudflare</p>
 
 <h2>
-<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
 
 <p><code>npm install -g cloudflare-cli</code></p>
 
 <h2>
-<a name="setup" class="anchor" href="#setup"><span class="octicon octicon-link"></span></a>Setup</h2>
+<a id="setup" class="anchor" href="#setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setup</h2>
 
 <p>You can setup a yaml config file with default parameters e.g. token and email.
 By default cfcli will look for ".cfcli.yml" in your home directory (you can also pass in a config file with -c)</p>
 
 <h3>
-<a name="example" class="anchor" href="#example"><span class="octicon octicon-link"></span></a>Example</h3>
+<a id="configuration-example" class="anchor" href="#configuration-example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configuration Example</h3>
 
-<div class="highlight highlight-yaml"><pre><span class="l-Scalar-Plain">defaults</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">token</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;cloudflare-token&gt;</span>
-    <span class="l-Scalar-Plain">email</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;you@domain.com&gt;</span>
-    <span class="l-Scalar-Plain">domain</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;default-cloudflare-domain&gt;</span>
-</pre></div>
+<p>If you have only one cloudflare account you can set it up as below:</p>
+
+<div class="highlight highlight-source-yaml"><pre><span class="pl-s"><span class="pl-ent">defaults:</span></span>
+    <span class="pl-s"><span class="pl-ent">token:</span> <span class="pl-s">&lt;cloudflare-token&gt;</span></span>
+    <span class="pl-s"><span class="pl-ent">email:</span> <span class="pl-s">&lt;you@domain.com&gt;</span></span>
+    <span class="pl-s"><span class="pl-ent">domain:</span> <span class="pl-s">&lt;default-cloudflare-domain&gt;</span></span></pre></div>
+
+<p>If you have multiple cloudflare accounts, and you can set up accounts as below:</p>
+
+<div class="highlight highlight-source-yaml"><pre><span class="pl-s"><span class="pl-ent">defaults:</span></span>
+    <span class="pl-s"><span class="pl-ent">account:</span> <span class="pl-s">work</span></span>
+<span class="pl-s"><span class="pl-ent">accounts:</span></span>
+    <span class="pl-s"><span class="pl-ent">work:</span></span>
+        <span class="pl-s"><span class="pl-ent">token:</span> <span class="pl-s">&lt;cloudflare-token&gt;</span></span>
+        <span class="pl-s"><span class="pl-ent">email:</span> <span class="pl-s">&lt;you@domain.com&gt;</span></span>
+        <span class="pl-s"><span class="pl-ent">domain:</span> <span class="pl-s">&lt;default-cloudflare-domain&gt;</span></span>
+    <span class="pl-s"><span class="pl-ent">play:</span></span>
+        <span class="pl-s"><span class="pl-ent">token:</span> <span class="pl-s">&lt;cloudflare-token&gt;</span></span>
+        <span class="pl-s"><span class="pl-ent">email:</span> <span class="pl-s">&lt;you@domain.com&gt;</span></span>
+        <span class="pl-s"><span class="pl-ent">domain:</span> <span class="pl-s">&lt;default-cloudflare-domain&gt;</span></span></pre></div>
+
+<p>You can then use <code>-u play</code> to interact with the second cloudflare account.</p>
 
 <h2>
-<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
 
 <pre><code>NAME
     cfcli - Interact with cloudflare from the command line
@@ -74,41 +72,71 @@ SYNOPSIS
 
 OPTIONS:
     -c  --config    Path to yml file with config defaults (defaults to ~/.cfcli.yml
-    -k  --token     Token for your cloudflare account
     -e  --email     Email of your cloudflare account
+    -k  --token     Token for your cloudflare account
+    -u  --account   Choose one of your named cloudflare accounts from .cfcli.yml
     -d  --domain    Domain to operate on
-    -a  --activate  Active cloudflare after creating record (for addrecord)
+    -a  --activate  Activate cloudflare after creating record (for addrecord)
     -f  --format    Format when printing records (csv or table)
     -t  --type      Type of record (for dns record functions)
+    -p  --priority  Set priority when adding a record (MX or SRV)
+    -l  --ttl       Set ttl on add or edit (120 - 86400 seconds, or 1 for auto)
     -h  --help      Display help
 
 COMMANDS:
-    addrecord [name] [content]
+    addrecord &lt;name&gt; &lt;content&gt;
         Add a DNS record. Use -a to activate cf after creation
-    disablecf [name]
-        Disable cloudflare caching for given record
-    editrecord [name] [content]
+    devmode on|off
+        Toggle development mode on/off
+    disablecf &lt;name&gt; [content]
+        Disable cloudflare caching for given record and optionally specific value
+    editrecord &lt;name&gt; &lt;content&gt;
         Edit a DNS record.
-    enablecf [name]
-        Enable cloudflare caching for given record
+    enablecf &lt;name&gt; [content]
+        Enable cloudflare caching for given record and optionally specific value
     listdomains
         List domains in your cloudflare account
     listrecords
         List dns records for the domain
     purgecache
         Clear all cache files for the domain
-    purgefile [url]
+    purgefile &lt;url&gt;
         Purge file at given url
-    removerecord [name]
-        Remove record with given name
+    removerecord &lt;name&gt; [content]
+        Remove record with given name and optionally specific value
 </code></pre>
 
 <h3>
-<a name="examples" class="anchor" href="#examples"><span class="octicon octicon-link"></span></a>Examples</h3>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h3>
 
-<p>Add a new A record (mail) and activate cloudflare</p>
+<p>Add a new A record (mail) and activate cloudflare (-a)</p>
 
 <pre><code>cfcli -a -t A addrecord mail 127.0.0.1
+</code></pre>
+
+<p>Edit a record (mail) and set the TTL</p>
+
+<pre><code>cfcli --ttl 120 editrecord  mail 127.0.0.1
+</code></pre>
+
+<p>Remove all records with the name test</p>
+
+<pre><code>cfcli removerecord test
+</code></pre>
+
+<p>Remove record with name test and value 1.1.1.1</p>
+
+<pre><code>cfcli removerecord test 1.1.1.1
+</code></pre>
+
+<p>Enable cloudflare for any records that match test</p>
+
+<pre><code>cfcli enablecf test
+</code></pre>
+
+<p>Enable cloudflare for a record test with the value test.com</p>
+
+<pre><code>cfcli enablecf test test.com
 </code></pre>
 
 <p>Export domain records for test.com to csv</p>
@@ -120,10 +148,20 @@ COMMANDS:
 
 <pre><code>cfcli purgefile http://test.com/script.js
 </code></pre>
-      </section>
 
-    </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-    
+<p>Enable dev mode for test.com domain</p>
+
+<pre><code>cfcli -d test.com devmode on
+</code></pre>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/danielpigott/cloudflare-cli">Cloudflare-cli</a> is maintained by <a href="https://github.com/danielpigott">danielpigott</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
   </body>
 </html>
